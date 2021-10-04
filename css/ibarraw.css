@@ -1,0 +1,117 @@
+html {
+	height: 100%;
+}
+body {
+	display:grid;
+	margin:0;
+	background-color:isabelline;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: 
+		"head head" 
+    "button1 button2"
+		"leftPanel rightPanel" 
+		"footer footer"
+	;	
+}
+
+#top {
+	grid-area: head;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	font-size: 1.4em;
+	font-weight: bold;
+	text-align: center;
+	background-color:steelblue;
+	color:white;
+	font-family: "Verdana", "Geneva", "Tahoma", "sans-serif";
+}
+
+button {
+	padding: 5px; 
+	border-radius: 15px;
+	text-align: center;
+	font-size: 12px;
+	font-weight:bold;
+	cursor: pointer;	
+}
+
+.button1 {
+	grid-area: button1;
+	text-align: center;
+	padding: 5px;
+
+	background-color: lightslategray;
+}
+.button2 {
+	grid-area: button2;
+	text-align: center;
+	padding:5px;
+	
+	background-color: lightslategray;
+}
+
+#leftPanel {
+	grid-area: leftPanel;
+	background-color:aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+	color: mediumblue;
+}
+#rightPanel {
+	grid-area: rightPanel;
+	background-color:lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#changeLPara {
+  padding: 10px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#changeRight {
+  padding: 10px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.footer {
+	grid-area: footer;
+	padding-top: 11px;
+	padding-bottom: 11px;
+	width: 100%;
+	text-align: center;
+	font-size:small;
+	background-color: steelblue;
+}
+
+.changeFont{
+	font-family: monospace;
+	font-style: italic;
+	color:red;
+}
+
+.highlight{
+	color:seashell;
+	background-color:lightcoral;
+}
+
+#nextPage:hover{
+	
+	color: red;
+}
+
+#me {
+	border-radius: 20%;
+}
+
+
+
+
+
