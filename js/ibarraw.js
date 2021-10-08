@@ -27,8 +27,20 @@ class CourseCode {
 //-------------------- //jQuery doc ready starts here -------------------
 $(document).ready(function() { 
 	
-	$.getJSON("dataFiles/A1-JSON.json", function(data) {
-    
+  $.getJSON("dataFiles/A1-JSON.json", function(data) {
+   
+    //display the h3 header using jquery and template literal for formatting
+    $("#top").html(`SYST24444 ${myName} / ${id}`); 
+  
+  
+    //display the p footer using jquery and template literal for formatting
+    $(".footer").html(
+    `
+    <label><span style='color:white'>Login: </span></label><strong>${login}</strong>&nbsp|
+    <label><span style='color:white'>Campus: </span></label><strong>${campus}</strong>&nbsp|
+    <label><span style='color:white'>Program: </span></label><strong>${program}</strong>
+    `);
+		
     localStorage.setItem("name", data.AboutMe.myName);
     localStorage.setItem("id", data.AboutMe.myID);
     localStorage.setItem("login", data.AboutMe.myLogin);
@@ -81,19 +93,6 @@ $(document).ready(function() {
   "images/algorithm.png"));
   imgArr.push(new CourseCode(4, "SYST", "24444", 
   "images/web.png"));
-  
-
-  //display the h3 header using jquery and template literal for formatting
-  $("#top").html(`SYST24444 ${myName} / ${id}`); 
-  
-  
-  //display the p footer using jquery and template literal for formatting
-  $(".footer").html(
-  `
-  <label><span style='color:white'>Login: </span></label><strong>${login}</strong>&nbsp|
-  <label><span style='color:white'>Campus: </span></label><strong>${campus}</strong>&nbsp|
-  <label><span style='color:white'>Program: </span></label><strong>${program}</strong>
-  `);
   
   //jquery call to print all courses for #termOne
   $("#termOne").click(function(){
