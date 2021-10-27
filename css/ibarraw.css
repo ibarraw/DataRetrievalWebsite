@@ -1,6 +1,3 @@
-html {
-	height: 100%;
-}
 body {
 	display:grid;
 	margin:0;
@@ -54,17 +51,13 @@ button {
 #leftPanel {
 	grid-area: leftPanel;
 	background-color:aliceblue;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	height: 236px;
 	color: mediumblue;
 }
 #rightPanel {
 	grid-area: rightPanel;
+	height: 236px;
 	background-color:lightblue;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 #changeLPara {
