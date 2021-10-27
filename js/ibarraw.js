@@ -27,33 +27,9 @@ class CourseCode {
 //-------------------- //jQuery doc ready starts here -------------------
 $(document).ready(function() { 
 	
-  $.getJSON("dataFiles/A1-JSON.json", function(data) {
-   
-    //display the h3 header using jquery and template literal for formatting
-    $("#top").html(`SYST24444 ${myName} / ${id}`); 
-  
-  
-    //display the p footer using jquery and template literal for formatting
-    $(".footer").html(
-    `
-    <label><span style='color:white'>Login: </span></label><strong>${login}</strong>&nbsp|
-    <label><span style='color:white'>Campus: </span></label><strong>${campus}</strong>&nbsp|
-    <label><span style='color:white'>Program: </span></label><strong>${program}</strong>
-    `);
-		
-    localStorage.setItem("name", data.AboutMe.myName);
-    localStorage.setItem("id", data.AboutMe.myID);
-    localStorage.setItem("login", data.AboutMe.myLogin);
-    localStorage.setItem("campus", data.AboutMe.myCampus);
-    localStorage.setItem("program", data.AboutMe.myProgram);
+	$.getJSON("dataFiles/A1-JSON.json", function(data) {
+    loadData(data);
   });//end of .getJSON
-
-  //var get storage for each data element
-  myName = localStorage.getItem("name");
-  id = localStorage.getItem("id");
-  login = localStorage.getItem("login");
-  campus = localStorage.getItem("campus");
-  program = localStorage.getItem("program");
 
   //dataArr to store termNum, progData
   dataArr.push(new TermData(1, "SDNE for Term One"));
@@ -94,6 +70,9 @@ $(document).ready(function() {
   imgArr.push(new CourseCode(4, "SYST", "24444", 
   "images/web.png"));
   
+
+
+  
   //jquery call to print all courses for #termOne
   $("#termOne").click(function(){
     $("#changeLPara").html(createList("1"));
@@ -121,7 +100,8 @@ $(document).ready(function() {
 
   //highlight words on on/off
   $("#words").click(function(){
-    $("#changeLPara").toggleClass("highlight"); 
+    
+    $("p:contains('PROG')").toggleClass("highlight");
   });
 
 }); //jQuery document ready ends here
@@ -129,6 +109,14 @@ $(document).ready(function() {
 
 //inserts term number, and prints all courses with each term set to 1, 2, 3, or 4 respectively
 function createList(x) {
+  $(".footer").html(
+    `
+    <label><span style='color:white'>Login: </span></label><strong>${login}</strong>&nbsp|
+    <label><span style='color:white'>Campus: </span></label><strong>${campus}</strong>&nbsp|
+    <label><span style='color:white'>Program: </span></label><strong>${program}</strong>
+    `);
+
+    
   $("#changeLPara").html("");
   $("#changeLPara").append(`${dataArr[x - 1].progData}`); //-1 for array adjustment
   for (let y of imgArr) {
@@ -145,8 +133,30 @@ function createList(x) {
   }
 
 }; //createList ends
+
+function loadData(data) {
+  localStorage.setItem("myName", data.AboutMe.myName);
+  localStorage.setItem("id", data.AboutMe.myID);
+  localStorage.setItem("login", data.AboutMe.myLogin);
+  localStorage.setItem("campus", data.AboutMe.myCampus);
+  localStorage.setItem("program", data.AboutMe.myProgram);
+
+  myName = localStorage.getItem("myName");
+  id = localStorage.getItem("id");
+  login = localStorage.getItem("login");
+  campus = localStorage.getItem("campus");
+  program = localStorage.getItem("program");
+
+$("#top").html(`SYST24444 ${myName} / ${id}`); 
+  
+//display the p footer using jquery and template literal for formatting
+$(".footer").html(
+`
+<label><span style='color:white'>Login: </span></label><strong>${login}</strong>&nbsp|
+<label><span style='color:white'>Campus: </span></label><strong>${campus}</strong>&nbsp|
+<label><span style='color:white'>Program: </span></label><strong>${program}</strong>
+`);
+} //loadData ends
  
 
  
-  
-  
