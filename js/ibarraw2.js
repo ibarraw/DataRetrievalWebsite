@@ -10,14 +10,14 @@ $(document).ready(function() {
   console.log("inside doc ready");
 	$.getJSON("dataFiles/A1-JSON.json", function(data) {
     console.log("inside json");
-    localStorage.setItem("name", data.AboutMe.myName);
+    localStorage.setItem("myName", data.AboutMe.myName);
     localStorage.setItem("id", data.AboutMe.myID);
     localStorage.setItem("login", data.AboutMe.myLogin);
     localStorage.setItem("campus", data.AboutMe.myCampus);
     localStorage.setItem("program", data.AboutMe.myProgram);
   });//end of .getJSON
 
-  myName = localStorage.getItem("name");
+  myName = localStorage.getItem("myName");
   id = localStorage.getItem("id");
   login = localStorage.getItem("login");
   campus = localStorage.getItem("campus");
