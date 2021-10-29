@@ -1,22 +1,23 @@
 body {
-	display:grid;
-	margin:0;
+	display:flex;
+	flex-wrap: wrap;
+	margin:auto;
 	background-color:isabelline;
-	grid-template-columns: 1fr 1fr;
-	grid-template-areas: 
-		"head head" 
-    "button1 button2"
-		"leftPanel rightPanel" 
-		"footer footer"
-	;	
+
 }
 
-#top {
-	grid-area: head;
-	padding-top: 10px;
-	padding-bottom: 10px;
+.content {
+	display: flex;
+	flex-wrap: wrap;
+	height: 100vh;
 	width: 100%;
-	font-size: 1.4em;
+	text-align: center;
+	box-sizing: border-box;
+}
+#top {
+	padding-top: 12px;
+	width: 100%;
+	font-size: medium;
 	font-weight: bold;
 	text-align: center;
 	background-color:steelblue;
@@ -25,7 +26,8 @@ body {
 }
 
 button {
-	padding: 5px; 
+	width: auto;
+	padding: 5px;
 	border-radius: 15px;
 	text-align: center;
 	font-size: 12px;
@@ -34,50 +36,50 @@ button {
 }
 
 .button1 {
-	grid-area: button1;
+	width:50%;
+	padding-top: 5px;
 	text-align: center;
-	padding: 5px;
+
 
 	background-color: lightslategray;
 }
 .button2 {
-	grid-area: button2;
+	width: 50%;
+	padding-top: 5px;
 	text-align: center;
-	padding:5px;
+
 	
 	background-color: lightslategray;
 }
 
 #leftPanel {
-	grid-area: leftPanel;
+	width: 50%;
 	background-color:aliceblue;
-	height: 236px;
+	
 	color: mediumblue;
 }
 #rightPanel {
-	grid-area: rightPanel;
-	height: 236px;
+	text-align: center;
+	width: 50%;
 	background-color:lightblue;
 }
 
 #changeLPara {
-  padding: 10px;
-	text-align: center;
+	padding-top: 10px;
 	font-size: 16px;
 	font-weight: bold;
 }
 
 #changeRight {
-  padding: 10px;
-	text-align: center;
+	padding-top: 10px;
 	font-size: 16px;
 	font-weight: bold;
 }
 
 .footer {
-	grid-area: footer;
-	padding-top: 11px;
-	padding-bottom: 11px;
+	
+
+	padding-top: 12px;
 	width: 100%;
 	text-align: center;
 	font-size:small;
